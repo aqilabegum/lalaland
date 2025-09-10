@@ -1,159 +1,583 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aqila Begum Fahm Ara | AI Student</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqila Begum Fahm Ara - AI Student</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background-color: #1976d2;
-      color: white;
-      padding: 20px 40px;
-      text-align: center;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #1a1a1a 100%);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    .container {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      position: relative;
-      animation: fadeIn 1s ease;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .profile-pic {
-      float: right;
-      width: 150px;
-      border-radius: 12px;
-      margin-left: 20px;
-    }
+        .hero-section {
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
 
-    h1 {
-      color: #333;
-    }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8B0000, #DC143C, #FF6B6B);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
 
-    p {
-      color: #555;
-      line-height: 1.7;
-    }
+        @keyframes titleGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
 
-    .info {
-      margin: 20px 0;
-    }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #DC143C;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out;
+        }
 
-    .info strong {
-      display: inline-block;
-      width: 160px;
-      color: #1976d2;
-    }
+        .tagline {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s ease-out;
+        }
 
-    .social a {
-      margin-right: 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #1976d2;
-      transition: transform 0.2s;
-    }
+        .profile-card {
+            background: rgba(139, 0, 0, 0.1);
+            border: 2px solid #8B0000;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
 
-    .social a:hover {
-      transform: scale(1.1);
-      color: #d81b60;
-    }
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
 
-    .badge {
-      display: inline-block;
-      background-color: #fdd835;
-      padding: 5px 10px;
-      border-radius: 10px;
-      margin: 5px;
-      font-size: 14px;
-      color: #333;
-      animation: float 3s ease-in-out infinite;
-    }
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(220, 20, 60, 0.1), transparent);
+            animation: rotate 8s linear infinite;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #888;
-    }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            position: relative;
+            z-index: 2;
+        }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-  </style>
+        .info-item {
+            background: rgba(220, 20, 60, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #DC143C;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .info-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 20, 60, 0.3);
+            border-left-width: 8px;
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: #DC143C;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #DC143C;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .about-section {
+            background: rgba(139, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: #DC143C;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #8B0000, #DC143C);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #8B0000, #DC143C);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.4);
+            background: linear-gradient(45deg, #DC143C, #FF6B6B);
+        }
+
+        .social-link i {
+            font-size: 1.5rem;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            color: rgba(220, 20, 60, 0.1);
+            animation: float 15s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(220, 20, 60, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(220, 20, 60, 0.2);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #DC143C;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .profile-photo, .photo-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .photo-ring {
+                width: 240px;
+                height: 240px;
+                top: -20px;
+                left: -20px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-section, .profile-card {
+                padding: 30px 20px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .skill-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .skill-tag {
+            padding: 10px 20px;
+            background: rgba(220, 20, 60, 0.2);
+            border: 1px solid #DC143C;
+            border-radius: 25px;
+            color: #DC143C;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #DC143C;
+            color: white;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="container">
+        <div class="hero-section">
+            <h1 class="hero-title">AQILA BEGUM FAHM ARA</h1>
+            <p class="subtitle pulse">AI Student • IPB University</p>
+            <p class="tagline">Exploring the Future of Artificial Intelligence</p>
+            
+            <div class="skill-tags">
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Data Science</span>
+                <span class="skill-tag">Programming</span>
+                <span class="skill-tag">Innovation</span>
+            </div>
+        </div>
 
-  <header>
-    <h1>Hi! I'm Aqila (Lala)</h1>
-    <p>Mahasiswa Artificial Intelligence | IPB University</p>
-  </header>
+        <div class="profile-card">
+            <div class="info-grid">
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-user"></i>
+                    <div class="info-label">Nama Panggilan</div>
+                    <div class="info-value">Lala</div>
+                </div>
+                
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-birthday-cake"></i>
+                    <div class="info-label">Tempat, Tanggal Lahir</div>
+                    <div class="info-value">Bekasi, 20 Juni 2006</div>
+                </div>
+                
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-id-badge"></i>
+                    <div class="info-label">NIM</div>
+                    <div class="info-value">M0405241029</div>
+                </div>
+                
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="info-label">Semester</div>
+                    <div class="info-value">3</div>
+                </div>
+                
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-home"></i>
+                    <div class="info-label">Proxy</div>
+                    <div class="info-value">Stirling</div>
+                </div>
+                
+                <div class="info-item fade-in-up">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-label">Email</div>
+                    <div class="info-value">aqilabegum@apps.ipb.ac.id</div>
+                </div>
+            </div>
+        </div>
 
-  <div class="container">
-    <img src="https://i.ibb.co/3ySqtNN/avatar-placeholder.png" alt="Foto Aqila" class="profile-pic">
+        <div class="stats-section">
+            <div class="stat-item fade-in-up">
+                <div class="stat-number" id="semester">3</div>
+                <div class="stat-label">Semester</div>
+            </div>
+            
+            <div class="stat-item fade-in-up">
+                <div class="stat-number" id="age">19</div>
+                <div class="stat-label">Tahun</div>
+            </div>
+            
+            <div class="stat-item fade-in-up">
+                <div class="stat-number">AI</div>
+                <div class="stat-label">Major</div>
+            </div>
+            
+            <div class="stat-item fade-in-up">
+                <div class="stat-number">IPB</div>
+                <div class="stat-label">University</div>
+            </div>
+        </div>
 
-    <h2>About Me</h2>
-    <p>Halo! Saya adalah mahasiswa <strong>Artificial Intelligence (AI)</strong> yang antusias dengan teknologi dan pengembangan solusi cerdas. Saya memiliki ketertarikan kuat pada <strong>machine learning</strong>, <strong>data science</strong>, dan <strong>pemrograman</strong>.</p>
-    <p>Saat ini, saya sedang mengasah kemampuan saya dalam membangun model AI yang inovatif. Saya juga selalu bersemangat untuk belajar hal baru dan bekerja sama dalam tim yang kreatif dan dinamis.</p>
+        <div class="about-section fade-in-up">
+            <h2 class="about-title">About Me</h2>
+            <p class="about-text">
+                Halo! Saya adalah mahasiswa Artificial Intelligence (AI) yang antusias dengan teknologi dan pengembangan solusi cerdas. 
+                Saya memiliki ketertarikan kuat pada machine learning, data science, dan pemrograman. Saat ini, saya sedang mengasah 
+                kemampuan saya dalam membangun model AI yang inovatif. Saya juga selalu bersemangat untuk belajar hal baru dan bekerja 
+                sama dalam tim yang kreatif dan dinamis.
+            </p>
+        </div>
 
-    <div class="info">
-      <p><strong>Nama Lengkap:</strong> Aqila Begum Fahm Ara</p>
-      <p><strong>Nama Panggilan:</strong> Lala</p>
-      <p><strong>Tempat, Tanggal Lahir:</strong> Bekasi, 20 Juni 2006</p>
-      <p><strong>NIM:</strong> M0405241029</p>
-      <p><strong>Semester:</strong> 3</p>
-      <p><strong>Proxy:</strong> Stirling</p>
-      <p><strong>Email:</strong> <a href="mailto:aqilabegum@apps.ipb.ac.id">aqilabegum@apps.ipb.ac.id</a></p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/081314539216" target="_blank">Hubungi Saya</a></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/aqila-begum-fahm-ara-66aa33323/" class="social-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            
+            <a href="https://instagram.com/aaqilalala" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            
+            <a href="https://wa.me/081314539216" class="social-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            
+            <a href="mailto:aqilabegum@apps.ipb.ac.id" class="social-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+        </div>
     </div>
 
-    <h3>Find Me On:</h3>
-    <div class="social">
-      <a href="https://www.linkedin.com/in/aqila-begum-fahm-ara-66aa33323/" target="_blank">LinkedIn</a>
-      <a href="https://instagram.com/aaqilalala" target="_blank">Instagram</a>
-    </div>
+    <script>
+        // Floating elements animation
+        function createFloatingElement() {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.innerHTML = ['✦', '✧', '◊', '◈', '●', '◉', '▲', '▼'][Math.floor(Math.random() * 8)];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            element.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            
+            document.getElementById('floatingElements').appendChild(element);
+            
+            setTimeout(() => {
+                element.remove();
+            }, 15000);
+        }
 
-    <h3>Skills & Interests</h3>
-    <div>
-      <span class="badge">Machine Learning</span>
-      <span class="badge">Python</span>
-      <span class="badge">Data Science</span>
-      <span class="badge">Teamwork</span>
-      <span class="badge">AI Modeling</span>
-    </div>
-  </div>
+        // Create floating elements periodically
+        setInterval(createFloatingElement, 2000);
 
-  <footer>
-    &copy; 2025 Aqila Begum Fahm Ara - IPB AI Student
-  </footer>
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        });
 
-  <script>
-    // Tambahkan efek lucu saat hover judul
-    document.querySelector("h1").addEventListener("mouseover", () => {
-      document.querySelector("h1").style.color = "#f50057";
-    });
+        document.querySelectorAll('.info-item, .stat-item, .about-section').forEach(el => {
+            observer.observe(el);
+        });
 
-    document.querySelector("h1").addEventListener("mouseout", () => {
-      document.querySelector("h1").style.color = "white";
-    });
-  </script>
+        // Animated counter for stats
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    start = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(start);
+            }, 16);
+        }
 
+        // Mouse movement effect
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.hero-title');
+            if (cursor) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                cursor.style.textShadow = `
+                    ${x * 10}px ${y * 10}px 20px rgba(220, 20, 60, 0.3),
+                    ${x * -10}px ${y * -10}px 20px rgba(139, 0, 0, 0.3)
+                `;
+            }
+        });
+
+        // Add click effect to social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = e.offsetX - 10 + 'px';
+                ripple.style.top = e.offsetY - 10 + 'px';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Skill tags hover effect
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 5px 15px rgba(220, 20, 60, 0.4)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Add typing effect to hero title
+        const heroTitle = document.querySelector('.hero-title');
+        const originalText = heroTitle.textContent;
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < originalText.length) {
+                heroTitle.textContent = originalText.slice(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            heroTitle.textContent = '';
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
 </body>
 </html>
