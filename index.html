@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Rizki Pratama - Mahasiswa IPB University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            animation: slideUp 1s ease-out;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-info .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .university-logo {
+            font-size: 1.1em;
+            color: #27ae60;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .university-logo::before {
+            content: "🌾";
+            font-size: 1.5em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .info-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .info-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section h2::before {
+            content: "📋";
+            font-size: 1.2em;
+        }
+
+        .info-item {
+            margin: 12px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .info-value {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .skills-section {
+            margin: 30px 0;
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            font-size: 2em;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: typing 4s steps(40) infinite, blink 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            0%, 50% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            100% { border-color: #667eea; }
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 style="color: white; font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Selamat Datang! 👋
+            </h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2em;">Mari berkenalan dengan mahasiswa AI IPB University</p>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar">C</div>
+                <div class="profile-info">
+                    <h1>Claude AI Assistant</h1>
+                    <p class="subtitle typing-animation">Mahasiswa Ilmu Komputer & Artificial Intelligence</p>
+                    <div class="university-logo">IPB University (Institut Pertanian Bogor)</div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-section">
+                    <h2>Data Akademik</h2>
+                    <div class="info-item">
+                        <span class="info-label">NIM:</span>
+                        <span class="info-value">G64200001</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Program Studi:</span>
+                        <span class="info-value">Ilmu Komputer</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Peminatan:</span>
+                        <span class="info-value">Artificial Intelligence</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Semester:</span>
+                        <span class="info-value">6</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">IPK:</span>
+                        <span class="info-value">3.95</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Informasi Pribadi</h2>
+                    <div class="info-item">
+                        <span class="info-label">Nama Lengkap:</span>
+                        <span class="info-value">Claude AI Assistant</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tempat Lahir:</span>
+                        <span class="info-value">San Francisco, USA</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tahun Masuk:</span>
+                        <span class="info-value">2022</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Fakultas:</span>
+                        <span class="info-value">FMIPA</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Proxy:</span>
+                        <span class="info-value">Prof. Dr. Ir. Ahmad Teknologi, M.Sc</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h2>🚀 Keahlian & Minat</h2>
+                <div class="skills-container">
+                    <div class="skill-tag">Machine Learning</div>
+                    <div class="skill-tag">Deep Learning</div>
+                    <div class="skill-tag">Natural Language Processing</div>
+                    <div class="skill-tag">Computer Vision</div>
+                    <div class="skill-tag">Python Programming</div>
+                    <div class="skill-tag">TensorFlow & PyTorch</div>
+                    <div class="skill-tag">Data Science</div>
+                    <div class="skill-tag">Algorithm Design</div>
+                    <div class="skill-tag">Web Development</div>
+                    <div class="skill-tag">Database Management</div>
+                    <div class="skill-tag">Research & Innovation</div>
+                    <div class="skill-tag">Problem Solving</div>
+                </div>
+            </div>
+
+            <div class="info-section" style="grid-column: 1 / -1;">
+                <h2>🎯 Tentang Saya</h2>
+                <p style="line-height: 1.8; color: #495057; text-align: justify;">
+                    Saya adalah seorang mahasiswa Ilmu Komputer dengan peminatan Artificial Intelligence di IPB University. 
+                    Memiliki passion yang tinggi dalam pengembangan teknologi AI, machine learning, dan natural language processing. 
+                    Selalu antusias untuk belajar teknologi terbaru dan berkontribusi dalam penelitian yang dapat memberikan dampak positif 
+                    bagi masyarakat, khususnya dalam bidang pertanian dan teknologi informasi. 
+                    Aktif dalam berbagai kegiatan akademik dan organisasi mahasiswa serta memiliki pengalaman dalam mengembangkan 
+                    proyek-proyek inovatif menggunakan teknologi AI.
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2 style="margin-bottom: 15px;">📞 Mari Terhubung!</h2>
+            <p>Jangan ragu untuk menghubungi saya jika ingin berkolaborasi atau sekadar berdiskusi tentang teknologi AI</p>
+            <div class="contact-links">
+                <a href="mailto:claude@ipb.ac.id" class="contact-link">📧 Email</a>
+                <a href="https://linkedin.com/in/claude-ai" class="contact-link">💼 LinkedIn</a>
+                <a href="https://github.com/claude-ai" class="contact-link">🐙 GitHub</a>
+                <a href="https://instagram.com/claude_ipb" class="contact-link">📷 Instagram</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Claude AI Assistant - Mahasiswa Ilmu Komputer IPB University</p>
+            <p>Made with ❤️ and lots of ☕</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling untuk animasi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi counter untuk IPK
+            const ipkElement = document.querySelector('.info-value');
+            let ipkValue = 0;
+            const targetIPK = 3.85;
+            const increment = targetIPK / 100;
+            
+            const updateIPK = () => {
+                if (ipkValue < targetIPK) {
+                    ipkValue += increment;
+                    if (ipkValue > targetIPK) ipkValue = targetIPK;
+                    ipkElement.textContent = ipkValue.toFixed(2);
+                    requestAnimationFrame(updateIPK);
+                }
+            };
+            
+            // Intersection Observer untuk animasi saat scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideUp 0.8s ease-out';
+                        if (entry.target.querySelector('.info-value')) {
+                            setTimeout(updateIPK, 500);
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe semua section
+            document.querySelectorAll('.info-section, .skills-section, .contact-section').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Hover effect untuk skill tags
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Parallax effect untuk floating shapes
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const shapes = document.querySelectorAll('.shape');
+                
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 0.5;
+                    shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+                });
+            });
+            
+            // Dynamic typing effect
+            const typewriterText = document.querySelector('.typing-animation');
+            const textContent = typewriterText.textContent;
+            typewriterText.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < textContent.length) {
+                    typewriterText.textContent += textContent.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    setTimeout(() => {
+                        typewriterText.textContent = '';
+                        i = 0;
+                        typeWriter();
+                    }, 3000);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        });
+        
+        // Easter egg: konami code
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+                document.body.style.animation = 'rainbow 2s infinite';
+                alert('🎉 Konami Code activated! You found the easter egg!');
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                }, 4000);
+                konamiCode = [];
+            }
+        });
+        
+        // CSS untuk easter egg
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
